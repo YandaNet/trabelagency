@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Головна — MandraTravel{% endblock %}
+
+{% block content %}
+<section class="banner">
+    <div class="banner-text">
+        <h1>Відкривай світ разом з MandraTravel</h1>
+        <p>Найкращі тури, незабутні враження та високий рівень комфорту.</p>
+        <a href="{{ url_for('tours') }}" class="btn">Переглянути тури</a>
+    </div>
+</section>
+
+<section class="intro">
+    <h2>Ласкаво просимо!</h2>
+    <p>MandraTravel — це ваш надійний провідник у світі подорожей. Ми організовуємо відпочинок вашої мрії: від сонячних пляжів Екзотичних островів до захоплюючих гірських сходжень та культурних вікендів у Європі.</p>
+</section>
+{% endblock %}

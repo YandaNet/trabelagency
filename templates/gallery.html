@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Галерея — MandraTravel{% endblock %}
+
+{% block content %}
+<h1>Галерея подорожей</h1>
+<p>Клацніть на фотографію, щоб переглянути її у збільшеному розмірі.</p>
+
+<div class="gallery-grid">
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/gallery1.jpg') }}" alt="Пляж та океан"></div>
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/gallery2.jpg') }}" alt="Гірський пейзаж"></div>
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/gallery3.jpg') }}" alt="Старовинне місто"></div>
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/gallery4.jpg') }}" alt="Тропічний готель"></div>
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/gallery5.jpg') }}" alt="Захід сонця на морі"></div>
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/gallery6.jpg') }}" alt="Екскурсія"></div>
+</div>
+{% endblock %}

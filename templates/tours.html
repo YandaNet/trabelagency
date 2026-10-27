@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Наші тури — MandraTravel{% endblock %}
+
+{% block content %}
+<h1>Доступні тури</h1>
+
+<!-- Блок пошуку та фільтрації -->
+<div class="filter-box">
+    <div class="filter-group">
+        <label for="search-input">Пошук за назвою:</label>
+        <input type="text" id="search-input" placeholder="Введіть назву туру...">
+    </div>
+    <div class="filter-group">
+        <label for="price-input">Максимальна ціна ($):</label>
+        <input type="number" id="price-input" placeholder="Наприклад: 1000">
+    </div>
+</div>
+
+<div id="no-tours-found" class="info-message hidden">Нічого не знайдено за вашим запитом.</div>
+
+{% if tours %}
+    <div class="tours-grid" id="tours-container">
+        {% for tour in tours %}
+            <div class="tour-card" data-title="{{ tour['title'] }}" data-price="{{ tour['price'] }}">
+                <img src="{{ url_for('static', filename='images/' + tour['image']) }}" alt="{{ tour['title'] }}">
+                <div class="tour-info">
+                    <h3>{{ tour['title'] }}</h3>
+                    <p class="tour-desc">{{ tour['description'] }}</p>
+                    <div class="tour-footer">
+                        <span class="tour-price">{{ tour['price'] }} $</span>
+                        <button class="btn btn-sm">Замовити</button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p class="info-message">Турів поки немає.</p>
+{% endif %}
+{% endblock %}

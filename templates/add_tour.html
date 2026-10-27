@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Додати тур — MandraTravel{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Додати новий тур</h1>
+
+    <div id="js-error-message" class="error-box hidden"></div>
+
+    {% if errors %}
+        <div class="error-box">
+            {% for error in errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form id="add-tour-form" action="{{ url_for('add_tour') }}" method="post" novalidate>
+        <div class="form-group">
+            <label for="title">Назва туру *</label>
+            <input type="text" id="title" name="title" value="{{ form_data.title if form_data else '' }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Опис</label>
+            <textarea id="description" name="description" rows="4">{{ form_data.description if form_data else '' }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Ціна ($) *</label>
+            <input type="number" id="price" name="price" step="0.01" value="{{ form_data.price if form_data else '' }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="image">Назва файлу фото (наприклад: tour1.jpg) *</label>
+            <input type="text" id="image" name="image" value="{{ form_data.image if form_data else '' }}" placeholder="tour1.jpg" required>
+        </div>
+
+        <button type="submit" class="btn">Зберегти тур</button>
+    </form>
+</div>
+{% endblock %}
